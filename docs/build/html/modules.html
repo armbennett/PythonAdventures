@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modules &#8212; PythonAdventures v0,1 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to PythonAdventures’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="modules">
+<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
+<p>Modules have been designed to specifically for Python Adventures to enable you to design graphics and sounds to accompany your creations.</p>
+<div class="section" id="pattern">
+<h2>Pattern<a class="headerlink" href="#pattern" title="Permalink to this headline">¶</a></h2>
+<p>The pattern module allows the creation of patterns that can be outputted in the form of 3-bit bitmap graphics or sounds.</p>
+<p>This example program shows the pattern module in use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pattern</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pattern [1], Pattern [2], Pattern [3]&quot;</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Choice: &quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+        <span class="c1">#load pre-defined pattern</span>
+        <span class="n">pattern</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pattern</span><span class="o">.</span><span class="n">happy</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+        <span class="c1">#create custom graphic</span>
+        <span class="n">pattern</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+        <span class="n">pattern</span><span class="o">.</span><span class="n">custom</span><span class="p">(</span><span class="s2">&quot;0011:1100:0011:1100&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;3&quot;</span><span class="p">:</span>
+        <span class="c1">#set individual pixels in a loop</span>
+        <span class="n">pattern</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">36</span><span class="p">):</span>
+                <span class="n">pattern</span><span class="o">.</span><span class="n">pixel</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">pattern</span><span class="o">.</span><span class="n">nextColor</span><span class="p">())</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 46%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>size(width, height)</p></td>
+<td><p>Creates a blank pattern of a set size.</p></td>
+<td><p>.size(2,2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>custom(string)</p></td>
+<td><p>Defines and displays a custom pattern.</p></td>
+<td><p>.custom(“00:11”)</p></td>
+</tr>
+<tr class="row-even"><td><p>load(pattern name)</p></td>
+<td><p>Loads a pre-defined pattern.</p></td>
+<td><p>.load(“happy”)</p></td>
+</tr>
+<tr class="row-odd"><td><p>pixel(pixel no., colour)</p></td>
+<td><p>Sets an individual pixel, they are
+numbered starting at 0 in the top left.</p></td>
+<td><p>.pixel(0,2)</p></td>
+</tr>
+<tr class="row-even"><td><p>play()</p></td>
+<td><p>Plays the current pattern using piano
+notes to represent each colour.</p></td>
+<td><p>.play()</p></td>
+</tr>
+<tr class="row-odd"><td><p>sing()</p></td>
+<td><p>Play the current pattern using the
+sofege scale.</p></td>
+<td><p>.sing()</p></td>
+</tr>
+<tr class="row-even"><td><p>images()</p></td>
+<td><p>Lists the pre-defined patterns.</p></td>
+<td><p>.images()</p></td>
+</tr>
+<tr class="row-odd"><td><p>nextColor()</p></td>
+<td><p>Returns a different colour each time
+it is called.</p></td>
+<td><p>.nextColor</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="colours">
+<h3>Colours<a class="headerlink" href="#colours" title="Permalink to this headline">¶</a></h3>
+<p>The graphics are represented in 3-bit colour, which allows for 8 colours. The table below indicates the available colours and their codes:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 58%" />
+<col style="width: 42%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Colour</p></th>
+<th class="head"><p>Code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Black</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Blue</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Green</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cyan</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>Red</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Magenta</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>Yellow</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-odd"><td><p>White</p></td>
+<td><p>7</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="music">
+<h2>Music<a class="headerlink" href="#music" title="Permalink to this headline">¶</a></h2>
+<p>The music module allows the creation of music from piano notes.</p>
+<p>This example program shows the music module in use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">music</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tune [1], Tune [2]&quot;</span><span class="p">)</span>
+<span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Choice: &quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">:</span>
+        <span class="c1">#load pre-defined tune</span>
+        <span class="n">music</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">music</span><span class="o">.</span><span class="n">twinkle</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s2">&quot;2&quot;</span><span class="p">:</span>
+        <span class="c1">#create custom tune</span>
+        <span class="n">music</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="s2">&quot;c4:5,d4,e4,f4,g4,a4,b4,c5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 49%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>play(tune)</p></td>
+<td><p>Plays either a pre-defined or custom
+tune.</p></td>
+<td><p>.play(pattern.twinkle)
+.play(“c4:4,d4,e4”)</p></td>
+</tr>
+<tr class="row-odd"><td><p>tunes()</p></td>
+<td><p>Lists the pre-defined tunes   .</p></td>
+<td><p>.tunes()</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="tune-format">
+<h3>Tune Format<a class="headerlink" href="#tune-format" title="Permalink to this headline">¶</a></h3>
+<p>Tunes are defined as a string of notes separated by commas. The octave is set using a number straight after the note, for example c4 is middle C.
+The duration of a note is set by adding a colon followed the desired duration. For example “c4:5” would play middle C for half a second. The same duration is used for each subsequent note until a new duration is set.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">PythonAdventures</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pattern">Pattern</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#music">Music</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to PythonAdventures’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Alex Hadwen-Bennett.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
