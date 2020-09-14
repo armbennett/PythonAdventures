@@ -1,0 +1,423 @@
+	* { margin: 0; 
+	padding: 0 }
+	
+	body {
+		background-color: #33cccc;
+		font-family: 'Montserrat', sans-serif;
+		height: 100%;
+	}
+	
+	
+	/*! 
+	* @package IcoFont 
+	* @version 1.0.1 
+	* @author IcoFont https://icofont.com 
+	* @copyright Copyright (c) 2015 - 2018 IcoFont 
+	* @license - https://icofont.com/license/
+	*/
+	@font-face
+	{
+	font-family: "IcoFont";
+	font-weight: normal;
+	font-style: "Regular";
+	src: url("http://pythonadventures.co.uk/fonts/icofont.woff2") format("woff2"),
+	url("http://pythonadventures.co.uk/icofont.woff") format("woff");
+	}
+	
+	#content {
+		margin: auto;
+		width: 98%;
+		height: 98%;
+		font-size: 1em;
+		margin: 0 1%;
+	}
+	
+	#image {
+		padding: 2%;
+		background-color: #ffffff;
+		min-height: 200px;
+    }
+	
+	#print-output {
+		background-color: #ffffff;
+		border-top: 1px solid #006666;
+		color: #4b4e4d;
+		font-weight: bold;
+		overflow: scroll;
+		font-size: 1.2em;
+		padding: 1%;
+		min-height: 200px;
+    }
+	
+	#story {
+		background-color: #ffffff;
+		width: 34%;
+		float: right;
+	}
+	
+	#storybox {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+	
+	#code {
+		width: 65%;
+		float: left;
+	}
+	
+	#sound {
+		visibility: hidden;
+	}
+	
+	.panel {
+		float: left;
+        width: 100%;
+		color: #ffffff;
+		margin: 10px 0 0 0;
+    }
+	
+	.head {
+		float: left;
+        width: 100%;
+		background-color: #006666;
+    }
+	
+	h1 {
+		color: #006666;
+	}
+	
+	p {
+		margin: 5px 0px;
+	}
+	
+	h2 {
+		float: left;
+		padding: 1% 0;
+		width: 98%;
+		font-size: 1.5em;
+		color: #006666;
+		line-height: 1.5em;
+		height: 1.5em;
+		display: block;
+		font-weight: normal;
+	}
+	
+	.code {
+		width: 80%;
+		margin: 10px;
+		border: 1px solid #006666;
+	}
+	
+	.modal {
+		  display: none; 
+		  position: fixed; 
+		  z-index: 1; 
+		  left: 0;
+		  top: 0;
+		  width: 100%; 
+		  height: 100%; 
+		  overflow: auto; 
+		  background-color: rgb(0,0,0);
+		  background-color: rgba(0,0,0,0.4);
+	}
+	
+	.modal-content {
+	  background-color: #fefefe;
+	  margin: 15% 0;
+	  float: right;
+	  padding: 20px;
+	  border: 1px solid #888;
+	  width: 80%; 
+	}
+
+	.close {
+	  color: #aaa;
+	  float: right;
+	  font-size: 28px;
+	  font-weight: bold;
+	}
+	
+	a.txtlink:link, a.txtlink:visited {
+		color: #33cccc;
+		font-weight: bold;
+	}
+	
+	li {
+		margin-left: 5%;	
+	}
+	
+	.innerhead {
+		float: left;
+        width: 98%;
+		padding: 0 10px;
+		font-size: 1.5em;
+		color: #ffffff;
+		line-height: 1.5em;
+		height: 1.5em;
+    }
+	
+	.icon {
+		float: right;
+		font-family: 'IcoFont';
+		margin: 0 10px 0 10px;
+		color: #ffffff;
+	}
+	
+	.icon a:link, .icon a:visited {
+		color: #ffffff;
+	}
+	
+	#footer {
+		width: 100%;
+		float: left;
+		margin: 5px;
+		text-align: center;
+	}
+	#footer a:link,
+	#footer a:visited {
+		color: #006666;
+	}
+
+	
+	#source {
+		float: left;
+        width: 100%;
+		height: 400px;
+		font-size: 1.4em;
+    }
+	
+	#header {
+		float: left;
+		width: 100%;
+		margin: 10px 0 0 0;
+	}
+
+	.access {
+		float: right;
+		text-align: right;
+		font-family: 'IcoFont';
+		margin: 0 0 0 15px;
+	}
+	
+	#title {
+		float: left;
+		width: 40%;
+	}
+
+	#grid {
+		margin: auto;
+		border-collapse: collapse;
+		color: #006666;
+		text-align: center;
+		vertical-align: middle;
+		font-size: 3em;
+		table-layout: fixed;
+		width: 80%;
+	}
+
+	#grid td {
+		border: 1px solid #808080;
+		background-color: #ffffff;
+		overflow: hidden;
+	}
+
+	.error, .not-implemented {
+		color: #d60001;
+		border: 2px solid #d60001;
+	}
+	
+	.error, .not-implemented, .message {
+		margin: 10px 5px 10px 10px;
+		padding: 5px 10px;
+		float: left;
+		background-color: #ffffff;
+		border-radius: 10px;
+		min-width: 80%;
+		white-space: normal;
+	}
+	
+	.message {
+		border: 2px solid #33cccc;
+		color: #006666;
+	}
+	
+	#callfunctions {
+		float: left;
+		width: 98%;
+		min-height: 100px;
+		background-color: #ffffff;
+		color: #4b4e4d;
+		padding: 1%;
+	}
+	
+	#dl {
+		visibility: hidden;
+	}
+	
+	.filebtns {
+		float: left;
+		white-space: nowrap;
+		display: inline-block;
+	}
+	
+	.txt_btn {
+		width: 40px;
+		height: 40px;
+		float: left;
+		text-align: center;
+		line-height: 40px;
+		color: #33cccc;
+		margin: 2px;
+		background: #006666;
+	}
+	
+	a:link {
+		text-decoration: none;
+	}
+
+	a:hover, button:hover, label:hover {
+		opacity: 0.6;
+	}
+	
+	#txt_s {
+		font-size: 0.8rem;
+	}
+	
+	#txt_m {
+		font-size: 1.2rem;
+	}
+	
+	#txt_l {
+		font-size: 2rem;
+	}
+	
+	#col_h {
+		font-size: 2rem;
+		background-color: #282A36;
+		color: #ffffff;
+	}
+	
+	#col_n {
+		font-size: 2rem;
+		color: #4b4e4d;
+		background-color: #ffffff;
+	}
+	
+	#col_d {
+		font-size: 2rem;
+		background-color: #FDF6E3;
+		color: #717773;
+	}
+	
+	.button, [type="file"] + label  {
+		font-size: 1.2em;
+		padding: 2px 6px;
+		cursor:pointer;
+		border-radius: 5px;
+		float: left;
+		position: relative;
+		line-height: 1.5em;
+		margin: 5px;
+	}
+	
+	#fname {
+		font-size: 1.2em;
+		float: left;
+		margin: 5px;
+		line-height: 1.5em;
+		border: 2px solid #006666;
+		padding: 2px 6px;
+	}
+	
+	label {
+		font-weight: 500;
+	}
+	
+	.btnnorm {
+		background-color: #ffffff;
+		color: #006666;
+		border: 2px solid #006666;
+	}
+	
+	.btnhigh {
+		background-color: #282A36;
+		color: #ffffff;
+		border: 2px solid #ffffff;
+	}
+	
+	.btndis {
+		background-color: #FDF6E3;
+		color: #717773;
+		border: 2px solid #717773;
+	}
+	
+	[type="file"] {
+		  border: 0;
+		  clip: rect(0, 0, 0, 0);
+		  height: 1px;
+		  overflow: hidden;
+		  padding: 0;
+		  position: absolute !important;
+		  white-space: nowrap;
+		  width: 1px;
+	}
+	
+	@media only screen and (max-width: 1400px) {
+		/* For mobile phones: */
+		#grid {
+			border: 1px solid #006666;
+			border-collapse: collapse;
+			margin: auto;
+			padding: 0;
+		}
+		
+		#source {
+			float: left;
+			width: 100%;
+			min-height: 250px;
+		}
+		
+		#storybox {
+			display: flex;
+			width: 100%;
+			min-height: 250px;
+			flex-direction: row;
+		}
+		
+		#image {
+			flex-basis: 38%;
+			padding: 1%;
+			background-color: #ffffff;
+		}
+	
+		#print-output {
+			flex-basis: 60%;
+			background-color: #ffffff;
+			border-left: 1px solid #006666;
+			border-top: 0px solid #006666;
+			color: #4b4e4d;
+			font-weight: bold;
+			overflow: scroll;
+			font-size: 1.2em;
+			padding: 1%;
+		}
+		
+		#code {
+			width: 100%;
+		}
+		
+		#story {
+			width: 100%;
+			float: left;
+			margin: 10px 0 0 0;
+		}
+
+	}
+	
+	@media only screen and (min-width: 1400px) {
+		#grid {
+			width: 60%;
+		}
+		
+	}
