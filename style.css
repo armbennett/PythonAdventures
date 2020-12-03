@@ -1,4 +1,4 @@
-* { margin: 0; 
+	* { margin: 0; 
 	padding: 0 }
 	
 	body {
@@ -33,40 +33,36 @@
 	}
 	
 	#image {
-		flex-basis: 53%;
-		padding: 1%;
+		padding: 2%;
 		background-color: #ffffff;
-		min-height: 400px;
+		min-height: 200px;
     }
-
+	
 	#print-output {
-		flex-basis: 45%;
 		background-color: #ffffff;
-		border-left: 1px solid #006666;
+		border-top: 1px solid #006666;
 		color: #4b4e4d;
 		font-weight: bold;
 		overflow: scroll;
 		font-size: 1.2em;
-		height: 400px;
 		padding: 1%;
+		min-height: 200px;
     }
-
+	
 	#story {
-		width: 100%;
 		background-color: #ffffff;
-		float: left;
-		margin: 10px 0 0 0;
+		width: 34%;
+		float: right;
 	}
 	
 	#storybox {
 		width: 100%;
 		display: flex;
-		min-height: 250px;
-		flex-direction: row;
+		flex-direction: column;
 	}
 	
 	#code {
-		width: 100%;
+		width: 65%;
 		float: left;
 	}
 	
@@ -172,14 +168,6 @@
 		color: #ffffff;
 	}
 	
-	.inactive {
-		float: right;
-		font-family: 'IcoFont';
-		margin: 0 10px 0 10px;
-		color: #ffffff;
-		opacity: 0.5;
-	}
-	
 	#footer {
 		width: 100%;
 		float: left;
@@ -196,15 +184,6 @@
 		float: left;
         width: 100%;
 		height: 400px;
-		overflow: hidden;
-		font-size: 1.4em;
-    }
-	
-	#directions {
-		float: left;
-        width: 100%;
-		height: 0;
-		overflow: hidden;
 		font-size: 1.4em;
     }
 	
@@ -228,7 +207,6 @@
 
 	#grid {
 		margin: auto;
-		border: 1px solid #006666;
 		border-collapse: collapse;
 		color: #006666;
 		text-align: center;
@@ -236,7 +214,6 @@
 		font-size: 3em;
 		table-layout: fixed;
 		width: 80%;
-		padding: 0;
 	}
 
 	#grid td {
@@ -388,14 +365,53 @@
 	
 	@media only screen and (max-width: 1400px) {
 		/* For mobile phones: */
-
+		#grid {
+			border: 1px solid #006666;
+			border-collapse: collapse;
+			margin: auto;
+			padding: 0;
+		}
 		
+		#source {
+			float: left;
+			width: 100%;
+			min-height: 250px;
+		}
+		
+		#storybox {
+			display: flex;
+			width: 100%;
+			min-height: 250px;
+			flex-direction: row;
+		}
+		
+		#image {
+			flex-basis: 38%;
+			padding: 1%;
+			background-color: #ffffff;
+		}
 	
-
+		#print-output {
+			flex-basis: 60%;
+			background-color: #ffffff;
+			border-left: 1px solid #006666;
+			border-top: 0px solid #006666;
+			color: #4b4e4d;
+			font-weight: bold;
+			overflow: scroll;
+			font-size: 1.2em;
+			padding: 1%;
+		}
 		
-
+		#code {
+			width: 100%;
+		}
 		
-
+		#story {
+			width: 100%;
+			float: left;
+			margin: 10px 0 0 0;
+		}
 
 	}
 	
