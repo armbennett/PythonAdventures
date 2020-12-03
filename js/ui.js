@@ -1,15 +1,49 @@
 //configure the editor window
 var editor;
+var instr;
 var colMode = "btnnorm";
+
 function setup() {
 	window.editor = ace.edit("source");
 	window.editor.setTheme("ace/theme/chrome");
 	window.editor.session.setMode("ace/mode/python");
+	window.instr = ace.edit("directions");
 };
 
 setup();
 
 document.getElementById("run").addEventListener("click", runit);
+
+$("#info_btn").click(function(event){
+	event.preventDefault();
+	if ($("#directions").css("height") == "0px") {
+		$("#directions").css("height", "400px");
+		$("#source").css("height", "0px");
+		$("#info_btn").removeClass("icon");
+		$("#info_btn").addClass("inactive");
+		$("#code_btn").removeClass("inactive");
+		$("#code_btn").addClass("icon");
+		$("#directions").addClass("active");
+			
+	window.instr.setTheme("ace/theme/chrome");
+	window.instr.session.setMode("ace/mode/text");
+	window.instr.session.setOption('indentedSoftWrap', false);
+	window.instr.session.setUseWrapMode(true);
+	window.instr.renderer.setShowGutter(false)
+	}
+});
+
+$("#code_btn").click(function(event){
+	event.preventDefault();
+	if ($("#source").css("height") == "0px") {
+		$("#directions").css("height", "0px");
+		$("#source").css("height", "400px");
+		$("#code_btn").removeClass("icon");
+		$("#code_btn").addClass("inactive");
+		$("#info_btn").removeClass("inactive");
+		$("#info_btn").addClass("icon")
+	}
+});
 
 //event listeners and functions for changing the text size
 $("#txt_s").click(function(event){
@@ -108,14 +142,19 @@ $("#exportBtn").click(function(event){
 	var filen = $("#fname").val();
 	var name = filen.replace(".py",".html");
 	var code = window.editor.getValue();
-	var source = document.getElementById("source"); 
-    source.innerHTML = code; 
+	var instructions = window.instr.getValue();
+	var source = document.getElementById("source");
+	var directions = document.getElementById("directions"); 
+    source.innerHTML = code;
+	directions.innerHTML = instructions; 
 	var blob = new Blob([$("html").html()], {type: "text/html;charset=utf-8"});
 	saveAs(blob, name);
 	window.editor.destroy();
+	window.instr.destroy();
 	$editor = $('ACE_ID');
 	$editor.remove();
 	source.innerHTML = code; 
+	directions.innerHTML = instructions; 
 	setup();
 });
 
@@ -124,10 +163,18 @@ $("#call").click(function(event){
 	event.preventDefault();
 	var name = prompt("Function Call");
 	var prog = editor.getValue()+"\n"+name;
+
    var mypre = document.getElementById("print-output"); 
    mypre.innerHTML = ''; 
-   Sk.pre = "print-output";
-   Sk.configure({output:outf, read:builtinRead}); 
+
+            Sk.configure({output: outf,
+                 read: builtinRead,
+                 __future__: Sk.python3});
+            Sk.canvas = "image";
+            if (editor.getValue().indexOf('turtle') > -1 ) {
+                $('#image').show()
+            }
+            Sk.pre = "print-output";
    (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'image';
    var myPromise = Sk.misceval.asyncToPromise(function() {
        return Sk.importMainWithBody("<stdin>", false, prog, true);
@@ -149,22 +196,26 @@ $("#call").click(function(event){
 
 try {
 	$( ".callbtn" ).on( "click", function(event) {
-	  	event.preventDefault();
-	var prog = editor.getValue()+"\n"+event.target.innerText;
+	event.preventDefault();
    var mypre = document.getElementById("print-output"); 
    mypre.innerHTML = ''; 
-   Sk.pre = "print-output";
-   Sk.configure({output:outf, read:builtinRead}); 
-   (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'image';
-   var myPromise = Sk.misceval.asyncToPromise(function() {
-       return Sk.importMainWithBody("<stdin>", false, prog, true);
-   });
-   myPromise.then(function(mod) {
-       
-   },
-       function(err) {
-       outf(err.toString());
-   });
+
+            Sk.configure({output: outf,
+                 read: builtinRead,
+                 __future__: Sk.python3});
+            Sk.canvas = "image";
+            if (editor.getValue().indexOf('turtle') > -1 ) {
+                $('#image').show()
+            }
+            Sk.pre = "print-output";
+            (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'image';
+            try {
+                Sk.misceval.asyncToPromise(function() {
+                    return Sk.importMainWithBody("<stdin>",false,editor.getValue(),true);
+                });
+            } catch(e) {
+                outf(e.toString() + "\n")
+            }
 	});
 } catch {
 	
@@ -216,3 +267,43 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+//event listener for a new function call
+$("#b0").click(function(event){
+	event.preventDefault();
+	var mypre = document.getElementById("input"); 
+	mypre.value = mypre.value + "0";
+	val = mypre.value
+	if (val.length == 8) {
+		var textArea = document.getElementById('input');
+		var keyboardEvent = new KeyboardEvent('keyup', {
+        code: 'Enter',
+        key: 'Enter',
+        charKode: 13,
+        keyCode: 13,
+        view: window,
+		bubbles: true
+    });
+    textArea.dispatchEvent(keyboardEvent);
+	}
+});
+
+$("#b1").click(function(event){
+	event.preventDefault();
+	var mypre = document.getElementById("input"); 
+	mypre.value = mypre.value + "1";
+	val = mypre.value
+	if (val.length == 8) {
+		var textArea = document.getElementById('input');
+		var keyboardEvent = new KeyboardEvent('keyup', {
+        code: 'Enter',
+        key: 'Enter',
+        charKode: 13,
+        keyCode: 13,
+        view: window,
+		bubbles: true
+    });
+
+    textArea.dispatchEvent(keyboardEvent);
+	}
+});

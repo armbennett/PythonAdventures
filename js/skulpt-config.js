@@ -1,6 +1,7 @@
 function outf(text) { 
     var mypre = document.getElementById("print-output"); 
-    mypre.innerHTML = mypre.innerHTML + text; 
+    mypre.innerHTML = mypre.innerHTML + text;
+	$("#print-output").scrollTop($("#print-output")[0].scrollHeight);
 }
 
 function builtinRead(x) {
@@ -30,14 +31,21 @@ Sk.configure({
    read: builtinRead
 });
 
+
+
 function runit(event) {
 	event.preventDefault();
-   var prog = editor.getValue()
    var mypre = document.getElementById("print-output"); 
    mypre.innerHTML = ''; 
-   Sk.pre = "print-output";
-   document.getElementById("grid").innerHTML = ""; 
-   Sk.configure({output:outf, read:builtinRead}); 
+var prog = editor.getValue();
+            Sk.configure({output: outf,
+                 read: builtinRead,
+                 __future__: Sk.python3});
+            Sk.canvas = "image";
+            if (editor.getValue().indexOf('turtle') > -1 ) {
+                $('#image').show()
+            }
+            Sk.pre = "print-output";
    (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'image';
    var myPromise = Sk.misceval.asyncToPromise(function() {
        return Sk.importMainWithBody("<stdin>", false, prog, true);
