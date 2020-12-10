@@ -42,20 +42,30 @@
 		</div>
 		<div class='panel'>
 		<div id="code">
-			<div class='head'>
-				<div class='innerhead'>
+			<div class="head">
+				<div class="innerhead">
 				CODE
+				<a href="#" id="info_btn" class="icon"> </a>
+				<a href="#" id="code_btn" class="inactive"> </a>
 				</div>
 			</div>
-		<pre id="source" contenteditable="true" tabindex="1">import pattern
+		<pre id="source" contenteditable="true" class="editor active" tabindex="1">import bitmap as b
 
 print("WELCOME")
 
 name = input("What is your name? ")
 print("Hello "+name+", it's nice to meet you!")
+img = b.Bitmap(image=b.happy)
+img.draw()</pre>
+<pre id="directions" contenteditable="true" class="editor active ace_editor ace-chrome" tabindex="2" draggable="false" style="height: 0px;">Welcome to Python Adventures.
+		
+Run the example program by pressing the run button or by using one of the following keyboard shortcuts:
 
-pattern.load(pattern.happy)</pre>
-
+Chrome and Edge on Windows: Alt + R
+Firefox on Windows: Alt + Shift + R
+Firefox and Chrome on Mac: Control + Option + R
+Firefox and Chrome on Linux: Alt + Shift + R
+</pre>
 		</div>
 			<div id='story'>
 						<div class='head'>
@@ -69,7 +79,7 @@ pattern.load(pattern.happy)</pre>
 					<table id="grid">
 					</table>
 				</div>
-				<pre id="print-output" tabindex="2" wrap="hard"></pre>
+				<pre id="print-output" tabindex="3" wrap="hard"></pre>
 				</div>
 			</div>
 			</div>
